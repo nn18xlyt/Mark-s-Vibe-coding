@@ -1,17 +1,21 @@
+import { Icon } from '@iconify/react'
 import { motion } from 'framer-motion'
 
 export default function Hero() {
   return (
-    <section id="home" className="mx-auto max-w-6xl px-4 pt-14 md:px-6 md:pt-20">
+    <section
+      id="home"
+      className="mx-auto max-w-6xl px-4 pt-14 md:px-6 md:pt-20 lg:px-8 lg:-translate-x-6"
+    >
       <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-center">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-white md:text-5xl">
+          <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-fg md:text-5xl">
             你好，我是{' '}
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-moss via-acid to-ember bg-clip-text text-transparent">
               Mark
             </span>
             ，
@@ -19,30 +23,34 @@ export default function Hero() {
             一个热爱AI的开发者
           </h1>
 
-          <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/70 md:text-base">
-            我专注于使用 Vibe Coding 构建高质量的 AI 体验，喜欢把复杂问题拆解成清晰、可维护的组件与交互。
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-fg/70 md:text-base">
+            <span className="block">我爱把AI变产品。</span>
+            <span className="block">一周做1个Demo。</span>
+            <span className="block">不好看就重来。</span>
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="#projects"
-              className="rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-fuchsia-500 px-4 py-2 text-sm font-medium text-black shadow-glow transition hover:opacity-95"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-acid via-ember to-moss px-4 py-2 text-sm font-medium text-bg shadow-glow transition duration-200 ease-out hover:opacity-95"
             >
-              查看项目
+              看作品
+              <Icon icon="mdi:arrow-right" className="h-4 w-4" />
             </a>
             <a
               href="#contact"
-              className="rounded-xl border border-border bg-white/5 px-4 py-2 text-sm font-medium text-white/90 transition hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-xl border border-border bg-fg/5 px-4 py-2 text-sm font-medium text-fg/85 transition duration-200 ease-out hover:bg-fg/10"
             >
-              联系我
+              聊两句
+              <Icon icon="mdi:chat-outline" className="h-4 w-4" />
             </a>
           </div>
 
           <div className="mt-7 flex flex-wrap gap-2">
-            {['React', 'TypeScript', 'Tailwind', 'Framer Motion'].map((tag) => (
+            {['Vibe Coding', 'React', 'TS', 'Vite'].map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-border bg-white/5 px-3 py-1 text-xs text-white/80"
+                className="rounded-full border border-border bg-fg/5 px-3 py-1 text-xs text-fg/75"
               >
                 {tag}
               </span>
@@ -61,26 +69,26 @@ export default function Hero() {
               <img
                 src="/OIP.webp"
                 alt="头像"
-                className="h-16 w-16 rounded-2xl border border-border bg-white/5"
+                className="h-16 w-16 rounded-2xl border border-border bg-fg/5"
               />
               <div>
-                <div className="text-sm font-semibold text-white">Mark</div>
-                <div className="text-xs text-white/70">AI Engineer · Builder</div>
+                <div className="text-sm font-semibold text-fg">Mark</div>
+                <div className="text-xs text-fg/70">写AI，也写产品</div>
               </div>
             </div>
 
             <div className="mt-5 grid gap-3">
               {[
-                { k: '定位', v: 'AI爱好者' },
-                { k: '偏好', v: '使用AI工具' },
-                { k: '目标', v: '成为AI专家，开发出改变世界的AI应用' },
+                { k: '现在', v: '在练Vibe' },
+                { k: '爱好', v: '把坑写成文' },
+                { k: '目标', v: '做出10个应用' },
               ].map((item) => (
                 <div
                   key={item.k}
-                  className="flex items-start justify-between gap-4 rounded-xl border border-border bg-white/5 px-4 py-3"
+                  className="flex items-start justify-between gap-4 rounded-xl border border-border bg-fg/5 px-4 py-3"
                 >
-                  <div className="text-xs text-white/60">{item.k}</div>
-                  <div className="text-xs text-white/85">{item.v}</div>
+                  <div className="text-xs text-fg/60">{item.k}</div>
+                  <div className="text-xs text-fg/85">{item.v}</div>
                 </div>
               ))}
             </div>

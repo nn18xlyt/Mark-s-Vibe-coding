@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState, type MouseEvent } from 'react'
+import { Icon } from '@iconify/react'
 
 type NavItem = {
   label: string
@@ -27,7 +28,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-bg/70 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6 lg:px-8 lg:-translate-x-6">
         <a
           href="#home"
           onClick={(e: MouseEvent<HTMLAnchorElement>) => {
@@ -36,10 +37,10 @@ export default function Header() {
           }}
           className="group inline-flex items-center gap-2"
         >
-          <span className="h-2 w-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500" />
+          <span className="h-2 w-2 rounded-full bg-gradient-to-r from-moss via-acid to-ember" />
           <span className="text-sm font-semibold tracking-wide">
-            <span className="text-white">My</span>{' '}
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500 bg-clip-text text-transparent">
+            <span className="text-fg">My</span>{' '}
+            <span className="bg-gradient-to-r from-moss via-acid to-ember bg-clip-text text-transparent">
               Portfolio
             </span>
           </span>
@@ -54,24 +55,25 @@ export default function Header() {
                 e.preventDefault()
                 handleNavClick(item.href)
               }}
-              className="text-sm text-white/80 transition hover:text-white"
+              className="text-sm text-fg/70 transition duration-200 ease-out hover:text-fg"
             >
               {item.label}
             </a>
           ))}
           <a
-            href="https://github.com/"
+            href="https://github.com/nn18xlyt"
             target="_blank"
             rel="noreferrer"
-            className="rounded-lg border border-border bg-white/5 px-3 py-1.5 text-sm text-white/90 transition hover:bg-white/10"
+            className="inline-flex items-center gap-2 rounded-lg border border-border bg-fg/5 px-3 py-1.5 text-sm text-fg/85 transition duration-200 ease-out hover:bg-fg/10"
           >
+            <Icon icon="mdi:github" className="h-4 w-4" />
             GitHub
           </a>
         </nav>
 
         <button
           type="button"
-          className="inline-flex items-center rounded-lg border border-border bg-white/5 px-3 py-2 text-sm text-white/90 transition hover:bg-white/10 md:hidden"
+          className="inline-flex items-center rounded-lg border border-border bg-fg/5 px-3 py-2 text-sm text-fg/85 transition duration-200 ease-out hover:bg-fg/10 md:hidden"
           onClick={() => setIsOpen((v: boolean) => !v)}
           aria-label="打开导航菜单"
           aria-expanded={isOpen}
@@ -82,7 +84,7 @@ export default function Header() {
 
       {isOpen && (
         <div className="border-t border-border bg-bg/90 md:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-3">
+          <div className="flex flex-col gap-2 px-4 py-3">
             {navItems.map((item) => (
               <a
                 key={item.href}
@@ -92,17 +94,18 @@ export default function Header() {
                   handleNavClick(item.href)
                   setIsOpen(false)
                 }}
-                className="rounded-lg px-3 py-2 text-sm text-white/85 transition hover:bg-white/5 hover:text-white"
+                className="rounded-lg px-3 py-2 text-sm text-fg/80 transition duration-200 ease-out hover:bg-fg/5 hover:text-fg"
               >
                 {item.label}
               </a>
             ))}
             <a
-              href="https://github.com/"
+              href="https://github.com/nn18xlyt"
               target="_blank"
               rel="noreferrer"
-              className="rounded-lg border border-border bg-white/5 px-3 py-2 text-sm text-white/90 transition hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-lg border border-border bg-fg/5 px-3 py-2 text-sm text-fg/85 transition duration-200 ease-out hover:bg-fg/10"
             >
+              <Icon icon="mdi:github" className="h-4 w-4" />
               GitHub
             </a>
           </div>

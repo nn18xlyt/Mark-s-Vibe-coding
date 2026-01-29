@@ -13,8 +13,8 @@ export default function App() {
         aria-hidden
         className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
       >
-        <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-gradient-to-r from-cyan-500/25 via-blue-500/20 to-fuchsia-500/25 blur-3xl" />
-        <div className="absolute bottom-[-260px] right-[-260px] h-[520px] w-[520px] rounded-full bg-gradient-to-tr from-fuchsia-500/18 via-blue-500/12 to-cyan-500/18 blur-3xl" />
+        <div className="absolute -top-44 left-[38%] h-[560px] w-[860px] -translate-x-1/2 rounded-full bg-gradient-to-r from-moss/18 via-acid/10 to-ember/16 blur-3xl" />
+        <div className="absolute bottom-[-280px] right-[-220px] h-[560px] w-[560px] rounded-full bg-gradient-to-tr from-ember/14 via-moss/10 to-acid/10 blur-3xl" />
       </div>
 
       <Header />
