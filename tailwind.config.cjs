@@ -29,6 +29,15 @@ module.exports = {
       boxShadow: {
         glow: '0 0 0 1px rgba(247,242,232,0.10), 0 14px 34px rgba(0,0,0,0.70)',
       },
+      keyframes: {
+        aurora: {
+          from: { backgroundPosition: '50% 50%, 50% 50%' },
+          to: { backgroundPosition: '350% 50%, 350% 50%' },
+        },
+      },
+      animation: {
+        aurora: 'aurora 60s linear infinite',
+      },
     },
   },
   plugins: [],

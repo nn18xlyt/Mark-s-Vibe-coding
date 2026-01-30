@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { skills } from '../data/skills'
+import { Spotlight } from './ui/spotlight-new'
 
 export default function About() {
   return (
@@ -22,17 +23,28 @@ export default function About() {
           <span className="block">能跑就先发。</span>
         </p>
 
-        <div className="mt-8 rounded-2xl border border-border bg-panel p-5 shadow-glow">
-          <div className="text-sm font-semibold text-fg">我常用这些</div>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {skills.map((skill) => (
-              <span
-                key={skill}
-                className="rounded-full border border-border bg-fg/5 px-3 py-1 text-xs text-fg/80"
-              >
-                {skill}
-              </span>
-            ))}
+        <div className="relative mt-8 overflow-hidden rounded-2xl border border-border bg-panel p-5 shadow-glow">
+          <Spotlight
+            className="z-0 opacity-35"
+            translateY={-260}
+            height={900}
+            width={420}
+            smallWidth={180}
+            duration={16}
+            xOffset={70}
+          />
+          <div className="relative z-10">
+            <div className="text-sm font-semibold text-fg">我常用这些</div>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="rounded-full border border-border bg-fg/5 px-3 py-1 text-xs text-fg/80"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </motion.div>
