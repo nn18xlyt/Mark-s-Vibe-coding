@@ -25,7 +25,7 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="mt-8 grid gap-5 md:grid-cols-12 md:grid-flow-dense">
+        <div className="mt-8 grid items-start gap-5 md:grid-cols-12 md:grid-flow-dense">
           {projects.map((project, idx) => (
             <BackgroundGradient
               key={project.name}
@@ -33,24 +33,24 @@ export default function Projects() {
                 idx === 0
                   ? 'md:col-span-7'
                   : idx === 1
-                    ? 'md:col-span-5 md:translate-y-6'
+                    ? 'md:col-span-5 md:translate-y-4'
                     : idx === 2
-                      ? 'md:col-span-5 md:-translate-y-2'
-                      : 'md:col-span-7 md:translate-y-10'
+                      ? 'md:col-span-5 md:-translate-y-1'
+                      : 'md:col-span-7 md:translate-y-7'
               }`}
             >
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noreferrer"
-                className="block rounded-2xl border border-border bg-panel shadow-glow transition duration-200 ease-out hover:border-fg/20"
-              >
+              <div className="group block rounded-2xl border border-border bg-panel shadow-glow transition duration-200 ease-out hover:border-fg/20">
                 <div className="overflow-hidden rounded-t-2xl border-b border-border bg-bg">
                   <img
                     src={project.imageUrl}
                     alt={`${project.name} 项目截图`}
                     loading="lazy"
-                    className="h-44 w-full object-cover transition duration-200 ease-out group-hover:scale-[1.02]"
+                    decoding="async"
+                    className={`h-44 w-full transition duration-200 ease-out group-hover:scale-[1.02] ${
+                      project.imageUrl.endsWith('.svg')
+                        ? 'bg-bg object-contain p-4'
+                        : 'object-cover'
+                    }`}
                   />
                 </div>
 
@@ -59,10 +59,26 @@ export default function Projects() {
                     <div className="text-sm font-semibold text-fg">
                       {project.name}
                     </div>
-                    <span className="inline-flex items-center gap-1 rounded-full border border-border bg-fg/5 px-2 py-0.5 text-[11px] text-fg/70">
-                      看
-                      <Icon icon="mdi:open-in-new" className="h-3.5 w-3.5" />
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 rounded-full border border-border bg-fg/5 px-2 py-0.5 text-[11px] text-fg/80 transition duration-200 ease-out hover:bg-fg/10"
+                      >
+                        GitHub
+                        <Icon icon="mdi:github" className="h-3.5 w-3.5" />
+                      </a>
+                      <a
+                        href={project.liveUrl}
+                        target={project.liveUrl.startsWith('/') ? undefined : '_blank'}
+                        rel={project.liveUrl.startsWith('/') ? undefined : 'noreferrer'}
+                        className="inline-flex items-center gap-1 rounded-full border border-border bg-fg/5 px-2 py-0.5 text-[11px] text-fg/80 transition duration-200 ease-out hover:bg-fg/10"
+                      >
+                        在线
+                        <Icon icon="mdi:open-in-new" className="h-3.5 w-3.5" />
+                      </a>
+                    </div>
                   </div>
 
                   <p className="mt-2 text-sm leading-relaxed text-fg/70">
@@ -80,7 +96,7 @@ export default function Projects() {
                     ))}
                   </div>
                 </div>
-              </a>
+              </div>
             </BackgroundGradient>
           ))}
         </div>

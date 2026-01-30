@@ -16,8 +16,17 @@ describe('data', () => {
       expect(project.description).toBeTruthy()
       expect(Array.isArray(project.techStack)).toBe(true)
       expect(project.techStack.length).toBeGreaterThan(0)
-      expect(project.imageUrl).toMatch(/^https?:\/\//)
-      expect(project.link).toMatch(/^https?:\/\//)
+      if (project.imageUrl.startsWith('/')) {
+        expect(project.imageUrl).toMatch(/^\//)
+      } else {
+        expect(project.imageUrl).toMatch(/^https?:\/\//)
+      }
+      expect(project.githubUrl).toMatch(/^https?:\/\//)
+      if (project.liveUrl.startsWith('/')) {
+        expect(project.liveUrl).toMatch(/^\//)
+      } else {
+        expect(project.liveUrl).toMatch(/^https?:\/\//)
+      }
     }
   })
 })
